@@ -30,6 +30,9 @@ def getMediaFile(request):
                   return HttpResponse(the_data, content_type="text/plain")
               if extension == 'prj':
                   return HttpResponse(the_data, content_type="application/octet-stream")
+              if extension == 'gpx':
+                  return HttpResponse(the_data, content_type="application/gpx+xml")            
+            
               if len(extension) > 2:
                  return HttpResponse(the_data, content_type=mimetypes.types_map['.'+str(extension.lower())])
               else:
